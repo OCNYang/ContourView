@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="ContuorView">
+        <attr name="shader_mode">
+            <enum name="RadialGradient" value="0x01"/>
+            <enum name="SweepGradient" value="0x02"/>
+            <enum name="LinearGradient" value="0x03"/>
+        </attr>
+        <attr name="shader_startcolor" format="color"/>
+        <attr name="shader_endcolor" format="color"/>
+        <attr name="shader_style">
+            <enum name="LeftToBottom" value="0x00"/>
+            <enum name="RightToBottom" value="0x11"/>
+            <enum name="TopToBottom" value="0x12"/>
+            <enum name="Center" value="0x13"/>
+        </attr>
+        <attr name="contuor_style">
+            <enum name="Beach" value="0x23"/>
+            <enum name="Ripples" value="0x22"/>
+            <enum name="Clouds" value="0x21"/>
+            <enum name="Sand" value="0x00"/>
+            <enum name="Shell" value="0x25"/>
+        </attr>
+        <attr name="shader_color" format="color"/>
+        <attr name="smoothness" format="float"/>
+    </declare-styleable>
+</resources>
