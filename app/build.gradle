@@ -28,4 +28,6 @@ dependencies {
     testImplementation 'junit:junit:4.12'
     implementation 'com.android.support.constraint:constraint-layout:1.0.2'
     implementation project(':contourview')
+    compile 'de.hdodenhof:circleimageview:2.1.0'
+    implementation 'com.android.support:design:25.4.0'
 }

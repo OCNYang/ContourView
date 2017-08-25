@@ -15,6 +15,7 @@ import android.support.annotation.ColorInt;
 import android.support.annotation.IntDef;
 import android.support.annotation.Nullable;
 import android.util.AttributeSet;
+import android.util.Log;
 import android.view.View;
 
 import java.lang.annotation.Retention;
@@ -33,11 +34,11 @@ import java.util.List;
 
 public class ContuorView extends View {
 
-    private final static int SHADER_MODE_NULL = 0x00;
-    private final static int SHADER_MODE_RADIAL = 0x01;
-    private final static int SHADER_MODE_SWEEP = 0x02;
-    private final static int SHADER_MODE_LINEAR = 0x03;
-    private final static int SHADER_MODE_CUSTOM = 0x04;
+    public final static int SHADER_MODE_NULL = 0x00;
+    public final static int SHADER_MODE_RADIAL = 0x01;
+    public final static int SHADER_MODE_SWEEP = 0x02;
+    public final static int SHADER_MODE_LINEAR = 0x03;
+    public final static int SHADER_MODE_CUSTOM = 0x04;
     private int mW;
     private int mH;
     private int mShaderColor;
@@ -47,10 +48,10 @@ public class ContuorView extends View {
     public @interface ShaderMode {
     }
 
-    private final static int SHADER_STYLE_LEFT_TO_BOTTOM = 0x00;
-    private final static int SHADER_STYLE_RIGHT_TO_BOTTOM = 0x11;
-    private final static int SHADER_STYLE_TOP_TO_BOTTOM = 0x12;
-    private final static int SHADER_STYLE_CENTER = 0x13;
+    public final static int SHADER_STYLE_LEFT_TO_BOTTOM = 0x00;
+    public final static int SHADER_STYLE_RIGHT_TO_BOTTOM = 0x11;
+    public final static int SHADER_STYLE_TOP_TO_BOTTOM = 0x12;
+    public final static int SHADER_STYLE_CENTER = 0x13;
 
     @IntDef({SHADER_STYLE_LEFT_TO_BOTTOM, SHADER_STYLE_RIGHT_TO_BOTTOM, SHADER_STYLE_TOP_TO_BOTTOM, SHADER_STYLE_CENTER})
     @Retention(RetentionPolicy.SOURCE)
@@ -64,7 +65,7 @@ public class ContuorView extends View {
     public final static int STYLE_SHELL = 0x25;
     private final static int STYLE_NULL = 0x24;
 
-    @IntDef({STYLE_SAND, STYLE_CLOUDS, STYLE_RIPPLES, STYLE_BEACH,STYLE_SHELL})
+    @IntDef({STYLE_SAND, STYLE_CLOUDS, STYLE_RIPPLES, STYLE_BEACH, STYLE_SHELL})
     @Retention(RetentionPolicy.SOURCE)
     public @interface Style {
     }
@@ -149,7 +150,7 @@ public class ContuorView extends View {
         int flag = 0;
         drawcontuor:
         for (Point[] pts : mPointsList) {
-            flag++;
+            ++flag;
             int length = pts.length;
             if (length < 4) {
                 continue drawcontuor;
@@ -158,7 +159,6 @@ public class ContuorView extends View {
             int x_min = 0, y_min = 0, x_max = 0, y_max = 0;
             for (int i = 0; i < length; i++) {
                 Point p_i, p_1i, p_i1, p_i2;
-                // Point ai,bi;
                 float ai_x, ai_y, bi_x, bi_y;
 
                 p_i = pts[i];
@@ -211,7 +211,8 @@ public class ContuorView extends View {
 
             if (haveShader) {
                 if (mShaderMode == SHADER_MODE_CUSTOM && mShader != null) {
-                    mPaint.setShader(mShader[flag % mShader.length]);
+                    mPaint.setShader(mShader[(flag - 1) % mShader.length]);
+                    Log.e("ocn", "flag:" + flag + " mshader.length:" + mShader.length + " 下标：" + flag % mShader.length);
                 } else {
                     Point startPoint, endPoint;
                     switch (mShaderStyle) {
@@ -262,6 +263,7 @@ public class ContuorView extends View {
             }
             canvas.drawPath(path, mPaint);
         }
+        flag = 0;
     }
 
 
@@ -291,7 +293,7 @@ public class ContuorView extends View {
     }
 
     public Point[] ptsArrTopoints(int... pts) {
-        Point[] points = new Point[(pts.length) % 2];
+        Point[] points = new Point[(pts.length) / 2];
         for (int i = 0, j = 0; i < pts.length && j < points.length; i += 2, j++) {
             points[j] = new Point(pts[i], pts[i + 1]);
         }
@@ -344,6 +346,7 @@ public class ContuorView extends View {
 
     public void setShader(Shader... shader) {
         mShader = shader;
+        mShaderMode = SHADER_MODE_CUSTOM;
     }
 
     public float getSmoothness() {
@@ -353,5 +356,12 @@ public class ContuorView extends View {
     public void setSmoothness(float smoothness) {
         mSmoothness = smoothness;
     }
-    //    invalidate();
+
+    public int getShaderColor() {
+        return mShaderColor;
+    }
+
+    public void setShaderColor(int shaderColor) {
+        mShaderColor = shaderColor;
+    }
 }

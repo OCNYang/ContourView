@@ -79,6 +79,7 @@ public final class PointsFactory {
             }
             points.add(pts1);
             points.add(pts2);
+
             return points;
         } else {
             Point[] pts1 = new Point[8];
@@ -100,8 +101,9 @@ public final class PointsFactory {
                     pts2[i] = new Point(pts1[i].x + (i == 0 ? 0 : distance), pts1[i].y + distance);
                 }
             }
-            points.add(pts1);
             points.add(pts2);
+            points.add(pts1);
+
             return points;
         }
     }
@@ -128,9 +130,10 @@ public final class PointsFactory {
         pts3[0] = new Point(width, 0);
         pts3[3] = new Point(width, 0);
 
-        points.add(pts1);
         points.add(pts2);
         points.add(pts3);
+        points.add(pts1);
+
         return points;
     }
 

@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v4.widget.NestedScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    app:layout_behavior="@string/appbar_scrolling_view_behavior"
+    tools:context="com.ocnyang.contuorviewdemo.ContuorActivity"
+    tools:showIn="@layout/activity_contuor">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <com.ocnyang.contourview.ContuorView
+            android:layout_width="match_parent"
+            android:layout_height="400dp"
+            app:contuor_style="Clouds"/>
+
+        <com.ocnyang.contourview.ContuorView
+            android:layout_width="match_parent"
+            android:layout_height="400dp"
+            app:contuor_style="Ripples"
+            app:shader_endcolor="@color/endcolor"
+            app:shader_mode="RadialGradient"
+            app:shader_startcolor="@color/startcolor"
+            app:shader_style="Center"/>
+
+        <com.ocnyang.contourview.ContuorView
+            android:layout_width="match_parent"
+            android:layout_height="400dp"
+            app:contuor_style="Shell"
+            app:shader_color="@color/startcolor"/>
+
+        <com.ocnyang.contourview.ContuorView
+            android:id="@+id/contuorview_beach"
+            android:layout_width="match_parent"
+            android:layout_height="400dp"
+            app:contuor_style="Beach"/>
+
+        <com.ocnyang.contourview.ContuorView
+            android:id="@+id/contuorview_custom"
+            android:layout_width="match_parent"
+            android:layout_height="400dp"/>
+
+    </LinearLayout>
+
+
+</android.support.v4.widget.NestedScrollView>
