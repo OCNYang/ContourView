@@ -15,7 +15,6 @@ import android.support.annotation.ColorInt;
 import android.support.annotation.IntDef;
 import android.support.annotation.Nullable;
 import android.util.AttributeSet;
-import android.util.Log;
 import android.view.View;
 
 import java.lang.annotation.Retention;
@@ -71,22 +70,15 @@ public class ContuorView extends View {
     }
 
     public final static float SMOOTHNESS_DEF = 0.25F;
-    //近似等价于 平滑系数，0~1，越小越平滑但是锚点的角度越大，越大越弯曲但是锚点附近的角度越平滑，建议：0.15~0.3
+    //smoothing coefficient: 0 ~ 1 recommended range: 0.15 ~ 0.3
     private float mSmoothness = 0.25F;
 
-    //填充方式
     private int mShaderMode;
-    //填充开始颜色
     private int mShaderStartColor;
-    //填充结束颜色
     private int mShaderEndColor;
-    //填充的方向，起始点的控制
     private int mShaderStyle;
-    //自带的填充样式
     private int mStyle;
-    //填充
     private Shader[] mShader;
-    //List<> 轮廓图个数，Point[] 锚点个数
     private List<Point[]> mPointsList;
     private Paint mPaint;
 
@@ -212,7 +204,6 @@ public class ContuorView extends View {
             if (haveShader) {
                 if (mShaderMode == SHADER_MODE_CUSTOM && mShader != null) {
                     mPaint.setShader(mShader[(flag - 1) % mShader.length]);
-                    Log.e("ocn", "flag:" + flag + " mshader.length:" + mShader.length + " 下标：" + flag % mShader.length);
                 } else {
                     Point startPoint, endPoint;
                     switch (mShaderStyle) {
