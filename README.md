@@ -23,7 +23,7 @@
 | （xml）属性名称 | 说明 | 值类型 |
 |:----:|:----|:----|
 | contuor_style | 内置轮廓样式 | Beach，Ripples，Clouds，Sand，Shell |
-| smoothness | 轮廓弯曲系数（没有必要的情况下，不建议设置） | Float类型 范围：0~1，建议范围：0.15~0.3，默认：0.25 |
+| smoothness | 轮廓弯曲系数（没有必要的情况下，不建议设置） | Float类型 范围：0--1，建议范围：0.15--0.3，默认：0.25 |
 | shader_mode | 轮廓内颜色的填充方式 | RadialGradient，SweepGradient，LinearGradient，不设置默认纯色填充 |
 | shader_startcolor | 填充起始颜色 | color类型，默认白色，需设置shader_mode 才有效果 |
 | shader_endcolor | 填充结束颜色 | 同上 |
@@ -42,7 +42,7 @@
 
 | 方法参数 | 说明 |
 |---------|------|
-| setPoints(int... pts) | 单个轮廓，int[]{锚点1.x,锚点1.y,锚点2.x,锚点2.y...锚点n.x,锚点y} |
+| setPoints(int... pts) | 单个轮廓，int[]{锚点1.x，锚点1.y，锚点2.x，锚点2.y......锚点n.x，锚点y} |
 | setPoints(Point[]... pointsArr) | 单个轮廓 android.graphics.Point |
 | setPoints(Point... points) | 多个轮廓 |
 | setPoints(int[]... ptsArr) | 多个轮廓 |
@@ -59,7 +59,7 @@
 Gradle
 
 	dependencies{
-	    compile 'com.youth.banner:banner:1.4.9'
+	    compile 'com.ocnyang.contourview:contourview:1.0.0'
 	}
 
 或者引用本地 lib
