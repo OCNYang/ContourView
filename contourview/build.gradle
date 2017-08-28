@@ -1,4 +1,7 @@
 apply plugin: 'com.android.library'
+//配置插件
+apply plugin: 'com.github.dcendents.android-maven'
+apply plugin: 'com.jfrog.bintray'
 
 android {
     compileSdkVersion 25
@@ -30,4 +33,94 @@ dependencies {
 
     implementation 'com.android.support:appcompat-v7:25.4.0'
     testImplementation 'junit:junit:4.12'
+}
+
+////指定jni相关的.so库的路径在libs下面（我习惯），如果不指定的话会在main文件夹下。也就是说如果你自己改变了位置必须告诉
+////Android Studio项目这样在编译的时候才能编译进去，否则生成的jni目录是空的
+//sourceSets {
+//    main {
+//        jniLibs.srcDirs = ['libs']
+//    }
+//}
+
+version = "1.0.0"       //这个是版本号，必须填写
+def siteUrl = 'https://github.com/OCNYang/ContuorView'      // 项目的主页   这个是说明，可随便填
+def gitUrl = 'https://github.com/OCNYang/ContuorView.git'      // Git仓库的url  这个是说明，可随便填
+//compile 'com.arshowbaby:mylibrary:1.0.0'中的com.arshowbaby
+group = "com.ocnyang.contourview"    // 这里是groupId ,必须填写  一般填你唯一的包名
+
+install {
+    repositories.mavenInstaller {
+        // This generates POM.xml with proper parameters
+        pom {
+            project {
+                packaging 'aar'
+                // 项目描述，复制我的话，这里需要修改。
+                name 'Android View with a magic background'     //项目描述
+                url siteUrl
+                // 软件开源协议，现在一般都是Apache License2.0吧，复制我的，这里不需要修改。
+                licenses {
+                    license {
+                        name 'The Apache Software License, Version 2.0'
+                        url 'http://www.apache.org/licenses/LICENSE-2.0.txt'
+                    }
+                }
+                //填写开发者基本信息，复制我的，这里需要修改。
+                developers {
+                    developer {
+                        id 'ocnyang'        //填写开发者的一些基本信息
+                        name 'ocnyang'    //填写开发者的一些基本信息
+                        email 'ocnyang@gmail.com'   //填写开发者的一些基本信息
+                    }
+                }
+                // SCM，复制我的，这里不需要修改。
+                scm {
+                    connection gitUrl
+                    developerConnection gitUrl
+                    url siteUrl
+                }
+            }
+        }
+    }
+}
+// 生成jar包的task，不需要修改。
+task sourcesJar(type: Jar) {
+    from android.sourceSets.main.java.srcDirs
+    classifier = 'sources'
+}
+// 生成jarDoc的task，不需要修改。
+task javadoc(type: Javadoc) {
+    source = android.sourceSets.main.java.srcDirs
+    classpath += project.files(android.getBootClasspath().join(File.pathSeparator))
+}
+// 生成javaDoc的jar，不需要修改
+task javadocJar(type: Jar, dependsOn: javadoc) {
+    classifier = 'javadoc'
+    from javadoc.destinationDir
+}
+artifacts {
+    archives javadocJar
+    archives sourcesJar
+}
+// 这里是读取Bintray相关的信息，我们上传项目到github上的时候会把gradle文件传上去，
+// 所以不要把帐号密码的信息直接写在这里，写在local.properties中，这里动态读取。
+Properties properties = new Properties()
+properties.load(project.rootProject.file('local.properties').newDataInputStream())
+bintray {
+    //读取 local.properties 文件里面的 bintray.user
+    user = properties.getProperty("bintray.user")
+    //读取 local.properties 文件里面的 bintray.apikey
+    key = properties.getProperty("bintray.apikey")
+
+    configurations = ['archives']
+    pkg {
+        userOrg = "EFall"      //发布到JCenter的组织，注意新版本的bintray是需要手动创建的
+        repo = "maven"          //发布到JCenter上的仓库名称，注意新版本的bintray是需要手动创建的
+        // 发布到Bintray上的项目名字，这里的名字不是compile 'com.arshowbaby:mylibrary:1.0.0'中的mylibrary
+        name = "ContuorView"
+        websiteUrl = siteUrl
+        vcsUrl = gitUrl
+        licenses = ["Apache-2.0"]
+        publish = true  // 是否是公开项目
+    }
 }
