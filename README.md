@@ -62,6 +62,15 @@ Gradle
 	    compile 'com.ocnyang.contourview:contourview:1.0.0'
 	}
 
+Maven
+
+    <dependency>
+      <groupId>com.ocnyang.contourview</groupId>
+      <artifactId>contourview</artifactId>
+      <version>1.0.0</version>
+      <type>pom</type>
+    </dependency>
+
 或者引用本地 lib
 
 	implementation project(':contourview')
