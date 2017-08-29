@@ -35,8 +35,8 @@ dependencies {
 }
 
 version = "1.0.0"
-def siteUrl = 'https://github.com/OCNYang/ContuorView'
-def gitUrl = 'https://github.com/OCNYang/ContuorView.git'
+def siteUrl = 'https://github.com/OCNYang/ContourView'
+def gitUrl = 'https://github.com/OCNYang/ContourView.git'
 group = "com.ocnyang.contourview"
 
 install {

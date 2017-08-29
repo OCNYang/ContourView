@@ -33,7 +33,7 @@ public class ContourActivity extends AppCompatActivity {
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Uri uri = Uri.parse("https://github.com/OCNYang/ContuorView");
+                Uri uri = Uri.parse("https://github.com/OCNYang/ContourView");
                 startActivity(new Intent(Intent.ACTION_VIEW, uri));
             }
         });
