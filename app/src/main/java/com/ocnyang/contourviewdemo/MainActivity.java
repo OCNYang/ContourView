@@ -19,7 +19,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void openGithub(View view){
-        Uri uri = Uri.parse("https://github.com/OCNYang/ContuorView");
+        Uri uri = Uri.parse("https://github.com/OCNYang/ContourView");
         startActivity(new Intent(Intent.ACTION_VIEW,uri));
     }
 }

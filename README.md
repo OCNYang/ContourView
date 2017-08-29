@@ -59,13 +59,13 @@
 Gradle
 
 	dependencies{
-	    compile 'com.ocnyang.contourview:contourview:1.0.0'
+	    compile 'com.ocnyang:contourview:1.0.0'
 	}
 
 Maven
 
     <dependency>
-      <groupId>com.ocnyang.contourview</groupId>
+      <groupId>com.ocnyang</groupId>
       <artifactId>contourview</artifactId>
       <version>1.0.0</version>
       <type>pom</type>

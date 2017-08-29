@@ -11,7 +11,7 @@ android {
         minSdkVersion 15
         targetSdkVersion 25
         versionCode 1
-        versionName "1.0"
+        versionName "1.0.0"
 
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
 
@@ -37,7 +37,7 @@ dependencies {
 version = "1.0.0"
 def siteUrl = 'https://github.com/OCNYang/ContourView'
 def gitUrl = 'https://github.com/OCNYang/ContourView.git'
-group = "com.ocnyang.contourview"
+group = "com.ocnyang"
 
 install {
     repositories.mavenInstaller {
@@ -94,7 +94,7 @@ bintray {
     configurations = ['archives']
     pkg {
         userOrg = "ocnyang"
-        repo = "maven"
+        repo = "contourview"
         name = "ContourView"
         websiteUrl = siteUrl
         vcsUrl = gitUrl
