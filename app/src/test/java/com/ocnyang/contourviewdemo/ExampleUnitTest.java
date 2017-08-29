@@ -1,4 +1,4 @@
-package com.ocnyang.contuorviewdemo;
+package com.ocnyang.contourviewdemo;
 
 import org.junit.Test;
 

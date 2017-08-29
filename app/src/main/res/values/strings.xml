@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">ContuorViewDemo</string>
-    <string name="title_activity_contuor">ContuorView</string>
+    <string name="app_name">ContourViewDemo</string>
+    <string name="title_activity_contour">ContourView</string>
     <string name="action_settings">Settings</string>
 </resources>

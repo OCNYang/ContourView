@@ -10,7 +10,7 @@
 
 ### 效果图
 
-| 样式（contuor_style） | 效果 |
+| 轮廓样式（contour_style） | 效果（这里只是轮廓的样式，默认效果都是白色，这里显示的颜色是自己设置的） |
 |:----:|:----:|
 | Sand(默认) | ![sand](http://obbu6r1mi.bkt.clouddn.com/github/contourview/sand.png?imageView2/2/w/400) |
 | Clouds | ![clouds](http://obbu6r1mi.bkt.clouddn.com/github/contourview/clouds.png?imageView2/2/w/400) |
@@ -22,10 +22,10 @@
 
 | （xml）属性名称 | 说明 | 值类型 |
 |:----:|:----|:----|
-| contuor_style | 内置轮廓样式 | Beach，Ripples，Clouds，Sand，Shell |
+| contour_style | 内置轮廓样式 | Beach，Ripples，Clouds，Sand，Shell |
 | smoothness | 轮廓弯曲系数（没有必要的情况下，不建议设置） | Float类型 范围：0--1，建议范围：0.15--0.3，默认：0.25 |
 | shader_mode | 轮廓内颜色的填充方式 | RadialGradient，SweepGradient，LinearGradient，不设置默认纯色填充 |
-| shader_startcolor | 填充起始颜色 | color类型，默认白色，需设置shader_mode 才有效果 |
+| shader_startcolor | 填充起始颜色 | color类型，半透明效果，设置类似#90FF0000的值（默认白色，需设置shader_mode 才有效果） |
 | shader_endcolor | 填充结束颜色 | 同上 |
 | shader_style | 填充起始点及方向的控制 | LeftToBottom（左上角到右下角），RightToBottom（右上角到左下角），TopToBottom（上中点到下中点），Center（中点到右下角） |
 | shader_color | 填充纯色颜色 | color类型，默认白色，不设置shader_mode时，可以通过此属性设置纯色填充颜色 |
@@ -79,10 +79,10 @@ Maven
 
 #### Step2. 在布局文件中使用，也可以设置相应的自定义属性
 
-	<com.ocnyang.contourview.ContuorView
+	<com.ocnyang.contourview.ContourView
         android:layout_width="match_parent"
         android:layout_height="400dp"
-        app:contuor_style="Ripples"
+        app:contour_style="Ripples"
         app:shader_endcolor="@color/endcolor"
         app:shader_mode="RadialGradient"
         app:shader_startcolor="@color/startcolor"
@@ -91,30 +91,28 @@ Maven
 
 根据自己的需要来设置属性。
 
-> 我检讨，我自罚：当时想名字时有点随意，更不可饶恕的是把类名 ContourView 拼错了，已经把库上传发布了，那就将错就错吧！（这个程序猿，不靠谱 :stuck_out_tongue_closed_eyes:）
-
 #### Step3. 如果需要自定义自己独特的轮廓，可以在代码中动态设置以下内容
 
     /**
      * Customize the coordinates of the anchor to control the area to be drawn。
      */
-    private void initCustomContuorView() {
-        ContuorView contuorViewCustom = (ContuorView) findViewById(R.id.contuorview_custom);
+    private void initCustomContourView() {
+        ContourView contourViewCustom = (ContourView) findViewById(R.id.contourview_custom);
         int width = getWidth();//获取屏幕的宽度
         int hight = 400;
         int[] ints = {width / 2, 0, width, hight / 2, width / 2, hight, 0, hight / 2};
         int[] intArr = new int[]{width / 2, hight / 4, width / 4 * 3, hight / 2, width / 2, hight / 4 * 3, width / 4, hight / 2};
-        contuorViewCustom.setPoints(ints, intArr);
-        contuorViewCustom.setShaderStartColor(getResources().getColor(R.color.startcolor));
-        contuorViewCustom.setShaderEndColor(getResources().getColor(R.color.endcolor));
-        contuorViewCustom.setShaderMode(ContuorView.SHADER_MODE_RADIAL);
+        contourViewCustom.setPoints(ints, intArr);
+        contourViewCustom.setShaderStartColor(getResources().getColor(R.color.startcolor));
+        contourViewCustom.setShaderEndColor(getResources().getColor(R.color.endcolor));
+        contourViewCustom.setShaderMode(ContourView.SHADER_MODE_RADIAL);
     }
 
     /**
      * Controls the color of the drawing.
      */
-    private void initBeachContuorView() {
-        ContuorView contuorViewBeach = ((ContuorView) findViewById(R.id.contuorview_beach));
+    private void initBeachContourView() {
+        ContourView contourViewBeach = ((ContourView) findViewById(R.id.contourview_beach));
 
         RadialGradient radialGradient = new RadialGradient(0, 0,4000,
                 getResources().getColor(R.color.startcolor),
@@ -123,5 +121,5 @@ Maven
         LinearGradient linearGradient = new LinearGradient(0, 0, getWidth(), 400,
                 Color.argb(30, 255, 255, 255), Color.argb(90, 255, 255, 255),
                 Shader.TileMode.REPEAT);
-        contuorViewBeach.setShader(radialGradient, linearGradient);
+        contourViewBeach.setShader(radialGradient, linearGradient);
     }

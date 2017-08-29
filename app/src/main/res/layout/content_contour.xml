@@ -6,42 +6,42 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
-    tools:context="com.ocnyang.contuorviewdemo.ContuorActivity"
-    tools:showIn="@layout/activity_contuor">
+    tools:context="com.ocnyang.contourviewdemo.ContourActivity"
+    tools:showIn="@layout/activity_contour">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical">
 
-        <com.ocnyang.contourview.ContuorView
+        <com.ocnyang.contourview.ContourView
             android:layout_width="match_parent"
             android:layout_height="400dp"
-            app:contuor_style="Clouds"/>
+            app:contour_style="Clouds"/>
 
-        <com.ocnyang.contourview.ContuorView
+        <com.ocnyang.contourview.ContourView
             android:layout_width="match_parent"
             android:layout_height="400dp"
-            app:contuor_style="Ripples"
+            app:contour_style="Ripples"
             app:shader_endcolor="@color/endcolor"
             app:shader_mode="RadialGradient"
             app:shader_startcolor="@color/startcolor"
             app:shader_style="Center"/>
 
-        <com.ocnyang.contourview.ContuorView
+        <com.ocnyang.contourview.ContourView
             android:layout_width="match_parent"
             android:layout_height="400dp"
-            app:contuor_style="Shell"
+            app:contour_style="Shell"
             app:shader_color="@color/startcolor"/>
 
-        <com.ocnyang.contourview.ContuorView
-            android:id="@+id/contuorview_beach"
+        <com.ocnyang.contourview.ContourView
+            android:id="@+id/contourview_beach"
             android:layout_width="match_parent"
             android:layout_height="400dp"
-            app:contuor_style="Beach"/>
+            app:contour_style="Beach"/>
 
-        <com.ocnyang.contourview.ContuorView
-            android:id="@+id/contuorview_custom"
+        <com.ocnyang.contourview.ContourView
+            android:id="@+id/contourview_custom"
             android:layout_width="match_parent"
             android:layout_height="400dp"/>
 

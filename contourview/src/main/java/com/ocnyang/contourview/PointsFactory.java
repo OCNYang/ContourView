@@ -5,11 +5,11 @@ import android.graphics.Point;
 import java.util.ArrayList;
 import java.util.List;
 
-import static com.ocnyang.contourview.ContuorView.STYLE_BEACH;
-import static com.ocnyang.contourview.ContuorView.STYLE_CLOUDS;
-import static com.ocnyang.contourview.ContuorView.STYLE_RIPPLES;
-import static com.ocnyang.contourview.ContuorView.STYLE_SAND;
-import static com.ocnyang.contourview.ContuorView.STYLE_SHELL;
+import static com.ocnyang.contourview.ContourView.STYLE_BEACH;
+import static com.ocnyang.contourview.ContourView.STYLE_CLOUDS;
+import static com.ocnyang.contourview.ContourView.STYLE_RIPPLES;
+import static com.ocnyang.contourview.ContourView.STYLE_SAND;
+import static com.ocnyang.contourview.ContourView.STYLE_SHELL;
 
 /*******************************************************************
  *    * * * *   * * * *   *     *       Created by OCN.Yang
@@ -20,7 +20,7 @@ import static com.ocnyang.contourview.ContuorView.STYLE_SHELL;
 
 
 public final class PointsFactory {
-    public static List<Point[]> getPoints(@ContuorView.Style int style, int width, int hight) {
+    public static List<Point[]> getPoints(@ContourView.Style int style, int width, int hight) {
         switch (style) {
             case STYLE_SAND:
                 return getStyleSandPoints(width, hight);

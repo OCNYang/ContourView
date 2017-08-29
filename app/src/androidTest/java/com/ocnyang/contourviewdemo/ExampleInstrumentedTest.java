@@ -1,4 +1,4 @@
-package com.ocnyang.contuorviewdemo;
+package com.ocnyang.contourviewdemo;
 
 import android.content.Context;
 import android.support.test.InstrumentationRegistry;
@@ -21,6 +21,6 @@ public class ExampleInstrumentedTest {
         // Context of the app under test.
         Context appContext = InstrumentationRegistry.getTargetContext();
 
-        assertEquals("com.ocnyang.contuorviewdemo", appContext.getPackageName());
+        assertEquals("com.ocnyang.contourviewdemo", appContext.getPackageName());
     }
 }

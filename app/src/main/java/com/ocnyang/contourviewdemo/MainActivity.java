@@ -1,4 +1,4 @@
-package com.ocnyang.contuorviewdemo;
+package com.ocnyang.contourviewdemo;
 
 import android.content.Intent;
 import android.net.Uri;
@@ -15,7 +15,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void startLook(View view){
-        startActivity(new Intent(this,ContuorActivity.class));
+        startActivity(new Intent(this,ContourActivity.class));
     }
 
     public void openGithub(View view){

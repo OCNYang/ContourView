@@ -4,7 +4,7 @@ android {
     compileSdkVersion 25
     buildToolsVersion "26.0.0"
     defaultConfig {
-        applicationId "com.ocnyang.contuorviewdemo"
+        applicationId "com.ocnyang.contourviewdemo"
         minSdkVersion 19
         targetSdkVersion 26
         versionCode 1

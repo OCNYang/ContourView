@@ -95,7 +95,7 @@ bintray {
     pkg {
         userOrg = "ocnyang"
         repo = "maven"
-        name = "ContuorView"
+        name = "ContourView"
         websiteUrl = siteUrl
         vcsUrl = gitUrl
         licenses = ["Apache-2.0"]

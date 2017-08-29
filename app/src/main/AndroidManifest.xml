@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-          package="com.ocnyang.contuorviewdemo">
+          package="com.ocnyang.contourviewdemo">
 
     <application
         android:allowBackup="true"
@@ -10,7 +10,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.AppCompat.NoActionBar">
-        <activity android:name=".MainActivity">
+        <activity android:name="com.ocnyang.contourviewdemo.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
 
@@ -18,8 +18,8 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".ContuorActivity"
-            android:label="@string/title_activity_contuor"
+            android:name="com.ocnyang.contourviewdemo.ContourActivity"
+            android:label="@string/title_activity_contour"
             android:theme="@style/Theme.AppCompat.NoActionBar">
         </activity>
     </application>

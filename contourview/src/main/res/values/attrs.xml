@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <declare-styleable name="ContuorView">
+    <declare-styleable name="ContourView">
         <attr name="shader_mode">
             <enum name="RadialGradient" value="0x01"/>
             <enum name="SweepGradient" value="0x02"/>
@@ -14,7 +14,7 @@
             <enum name="TopToBottom" value="0x12"/>
             <enum name="Center" value="0x13"/>
         </attr>
-        <attr name="contuor_style">
+        <attr name="contour_style">
             <enum name="Beach" value="0x23"/>
             <enum name="Ripples" value="0x22"/>
             <enum name="Clouds" value="0x21"/>

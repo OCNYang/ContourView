@@ -31,7 +31,7 @@ import java.util.List;
  *******************************************************************/
 
 
-public class ContuorView extends View {
+public class ContourView extends View {
 
     public final static int SHADER_MODE_NULL = 0x00;
     public final static int SHADER_MODE_RADIAL = 0x01;
@@ -82,23 +82,23 @@ public class ContuorView extends View {
     private List<Point[]> mPointsList;
     private Paint mPaint;
 
-    public ContuorView(Context context) {
+    public ContourView(Context context) {
         this(context, null);
     }
 
-    public ContuorView(Context context, @Nullable AttributeSet attrs) {
+    public ContourView(Context context, @Nullable AttributeSet attrs) {
         this(context, attrs, 0);
     }
 
-    public ContuorView(Context context, @Nullable AttributeSet attrs, int defStyleAttr) {
+    public ContourView(Context context, @Nullable AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
         mPaint = new Paint();
         mPaint.setStyle(Paint.Style.FILL);
 
-        TypedArray typedArray = context.obtainStyledAttributes(attrs, R.styleable.ContuorView);
-        mStyle = typedArray.getInt(R.styleable.ContuorView_contuor_style, STYLE_SAND);
+        TypedArray typedArray = context.obtainStyledAttributes(attrs, R.styleable.ContourView);
+        mStyle = typedArray.getInt(R.styleable.ContourView_contour_style, STYLE_SAND);
 
-        float smn = typedArray.getFloat(R.styleable.ContuorView_smoothness, SMOOTHNESS_DEF);
+        float smn = typedArray.getFloat(R.styleable.ContourView_smoothness, SMOOTHNESS_DEF);
         if (smn <= 0) {
             mSmoothness = 0.1F;
         } else if (smn >= 1) {
@@ -107,14 +107,14 @@ public class ContuorView extends View {
             mSmoothness = smn;
         }
 
-        int shader_mode = typedArray.getInt(R.styleable.ContuorView_shader_mode, SHADER_MODE_NULL);
+        int shader_mode = typedArray.getInt(R.styleable.ContourView_shader_mode, SHADER_MODE_NULL);
         mShaderMode = shader_mode;
         if (SHADER_MODE_NULL != shader_mode) {
-            mShaderStartColor = typedArray.getColor(R.styleable.ContuorView_shader_startcolor, Color.argb(90, 255, 255, 255));
-            mShaderEndColor = typedArray.getColor(R.styleable.ContuorView_shader_endcolor, Color.argb(90, 255, 255, 255));
-            mShaderStyle = typedArray.getInt(R.styleable.ContuorView_shader_style, SHADER_STYLE_LEFT_TO_BOTTOM);
+            mShaderStartColor = typedArray.getColor(R.styleable.ContourView_shader_startcolor, Color.argb(90, 255, 255, 255));
+            mShaderEndColor = typedArray.getColor(R.styleable.ContourView_shader_endcolor, Color.argb(90, 255, 255, 255));
+            mShaderStyle = typedArray.getInt(R.styleable.ContourView_shader_style, SHADER_STYLE_LEFT_TO_BOTTOM);
         } else {
-            mShaderColor = typedArray.getColor(R.styleable.ContuorView_shader_color, Color.argb(90, 255, 255, 255));
+            mShaderColor = typedArray.getColor(R.styleable.ContourView_shader_color, Color.argb(90, 255, 255, 255));
         }
     }
 
@@ -140,12 +140,12 @@ public class ContuorView extends View {
             mPointsList = PointsFactory.getPoints(mStyle, mW, mH);
         }
         int flag = 0;
-        drawcontuor:
+        drawcontour:
         for (Point[] pts : mPointsList) {
             ++flag;
             int length = pts.length;
             if (length < 4) {
-                continue drawcontuor;
+                continue drawcontour;
             }
             Path path = new Path();
             int x_min = 0, y_min = 0, x_max = 0, y_max = 0;
@@ -176,7 +176,7 @@ public class ContuorView extends View {
                 }
 
                 if (p_1i == null || p_i == null || p_i1 == null || p_i2 == null) {
-                    continue drawcontuor;
+                    continue drawcontour;
                 }
 
                 ai_x = p_i.x + (p_i1.x - p_1i.x) * mSmoothness;
