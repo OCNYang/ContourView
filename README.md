@@ -8,7 +8,7 @@
 
 你在这里能够知道的：
 
-* 自定义 View 相关内容
+* 自定义 View 相关内容：[自定义 View：用贝塞尔曲线绘制酷炫轮廓背景](http://www.jianshu.com/p/1fe0f8f0cdfa)  
 * 通过贝塞尔绘制 path
 * 这里采用的一种贝塞尔计算方法：[WiKi:Bézier-求贝塞尔曲线控制点](https://github.com/OCNYang/ContourView/wiki/B%C3%A9zier-%E6%B1%82%E8%B4%9D%E5%A1%9E%E5%B0%94%E6%9B%B2%E7%BA%BF%E6%8E%A7%E5%88%B6%E7%82%B9)
 
