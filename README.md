@@ -1,6 +1,10 @@
 # ContourView 轮廓背景控件
 
+[![Version Code](https://img.shields.io/badge/Version%20Code-1.0.0-brightgreen.svg)](https://jcenter.bintray.com/com/ocnyang/)  
+
 ## 新控件发布，欢迎大家 Star
+
+[![GitHub issues](https://img.shields.io/github/issues/OCNYang/ContourView.svg)](https://github.com/OCNYang/ContourView/issues)&ensp;&ensp;[![GitHub forks](https://img.shields.io/github/forks/OCNYang/ContourView.svg)](https://github.com/OCNYang/ContourView/network)&ensp;&ensp;[![GitHub stars](https://img.shields.io/github/stars/OCNYang/ContourView.svg)](https://github.com/OCNYang/ContourView/stargazers)  
 
 ![ContourView](http://obbu6r1mi.bkt.clouddn.com/github/contourview/reference.png)
 
