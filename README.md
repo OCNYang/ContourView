@@ -1,6 +1,6 @@
 # ContourView 轮廓背景控件
 
-[![Version Code](https://img.shields.io/badge/Version%20Code-1.0.0-brightgreen.svg)](https://jcenter.bintray.com/com/ocnyang/)  
+[![Version Code](https://img.shields.io/badge/Version%20Code-1.0.1-brightgreen.svg)](https://jcenter.bintray.com/com/ocnyang/)  
 
 ## 新控件发布，欢迎大家 Star
 
@@ -69,7 +69,7 @@
 Gradle
 
 	dependencies{
-	    compile 'com.ocnyang:contourview:1.0.0'
+	    compile 'com.ocnyang:contourview:1.0.1'
 	}
 
 Maven
@@ -77,7 +77,7 @@ Maven
     <dependency>
       <groupId>com.ocnyang</groupId>
       <artifactId>contourview</artifactId>
-      <version>1.0.0</version>
+      <version>1.0.1</version>
       <type>pom</type>
     </dependency>
 
@@ -133,3 +133,7 @@ Maven
                 Shader.TileMode.REPEAT);
         contourViewBeach.setShader(radialGradient, linearGradient);
     }
+
+## 版本历史  
+
+* v1.0.1 新增支持 3 个锚点坐标绘制轮廓；

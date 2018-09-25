@@ -43,7 +43,7 @@
         <com.ocnyang.contourview.ContourView
             android:id="@+id/contourview_custom"
             android:layout_width="match_parent"
-            android:layout_height="400dp"/>
+            android:layout_height="700px"/>
 
     </LinearLayout>
 

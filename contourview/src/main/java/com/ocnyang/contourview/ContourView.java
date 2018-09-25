@@ -70,7 +70,9 @@ public class ContourView extends View {
     }
 
     public final static float SMOOTHNESS_DEF = 0.25F;
-    //smoothing coefficient: 0 ~ 1 recommended range: 0.15 ~ 0.3
+    /**
+     * smoothing coefficient: 0 ~ 1 recommended range: 0.15 ~ 0.3
+     */
     private float mSmoothness = 0.25F;
 
     private int mShaderMode;
@@ -107,9 +109,9 @@ public class ContourView extends View {
             mSmoothness = smn;
         }
 
-        int shader_mode = typedArray.getInt(R.styleable.ContourView_shader_mode, SHADER_MODE_NULL);
-        mShaderMode = shader_mode;
-        if (SHADER_MODE_NULL != shader_mode) {
+        int shaderMode = typedArray.getInt(R.styleable.ContourView_shader_mode, SHADER_MODE_NULL);
+        mShaderMode = shaderMode;
+        if (SHADER_MODE_NULL != shaderMode) {
             mShaderStartColor = typedArray.getColor(R.styleable.ContourView_shader_startcolor, Color.argb(90, 255, 255, 255));
             mShaderEndColor = typedArray.getColor(R.styleable.ContourView_shader_endcolor, Color.argb(90, 255, 255, 255));
             mShaderStyle = typedArray.getInt(R.styleable.ContourView_shader_style, SHADER_STYLE_LEFT_TO_BOTTOM);
@@ -140,52 +142,85 @@ public class ContourView extends View {
             mPointsList = PointsFactory.getPoints(mStyle, mW, mH);
         }
         int flag = 0;
+
         drawcontour:
         for (Point[] pts : mPointsList) {
             ++flag;
             int length = pts.length;
-            if (length < 4) {
+            if (length < 3) {
                 continue drawcontour;
             }
             Path path = new Path();
             int x_min = 0, y_min = 0, x_max = 0, y_max = 0;
-            for (int i = 0; i < length; i++) {
-                Point p_i, p_1i, p_i1, p_i2;
-                float ai_x, ai_y, bi_x, bi_y;
 
-                p_i = pts[i];
-                if (i == 0) {
-                    path.moveTo(pts[0].x, pts[0].y);
-                    x_max = x_min = pts[0].x;
-                    y_min = y_max = pts[0].y;
-                    p_1i = pts[length - 1];
-                    p_i1 = pts[i + 1];
-                    p_i2 = pts[i + 2];
-                } else if (i == length - 1) {
-                    p_1i = pts[i - 1];
-                    p_i1 = pts[0];
-                    p_i2 = pts[1];
-                } else if (i == length - 2) {
-                    p_1i = pts[i - 1];
-                    p_i1 = pts[i + 1];
-                    p_i2 = pts[0];
+            for (int i = 0; i < length; i++) {
+                Point pI;
+                Point pI$1 = null;
+                Point pI_1 = null;
+                Point pI_2 = null;
+
+                float iControl1_X, iControl1_Y, iControl2_X, iControl2_Y;
+
+                pI = pts[i];
+                if (length == 3) {
+                    switch (i) {
+                        case 0:
+                            path.moveTo(pts[0].x, pts[0].y);
+                            x_max = x_min = pts[0].x;
+                            y_min = y_max = pts[0].y;
+
+                            pI$1 = pts[2];
+                            pI_1 = pts[1];
+                            pI_2 = pts[2];
+                            break;
+                        case 1:
+                            pI$1 = pts[0];
+                            pI_1 = pts[2];
+                            pI_2 = pts[0];
+                            break;
+                        case 2:
+                            pI$1 = pts[1];
+                            pI_1 = pts[0];
+                            pI_2 = pts[1];
+                            break;
+                        default:
+                            break;
+                    }
                 } else {
-                    p_1i = pts[i - 1];
-                    p_i1 = pts[i + 1];
-                    p_i2 = pts[i + 2];
+                    if (i == 0) {
+                        path.moveTo(pts[0].x, pts[0].y);
+                        x_max = x_min = pts[0].x;
+                        y_min = y_max = pts[0].y;
+
+                        pI$1 = pts[length - 1];
+                        pI_1 = pts[i + 1];
+                        pI_2 = pts[i + 2];
+                    } else if (i == length - 1) {
+                        pI$1 = pts[i - 1];
+                        pI_1 = pts[0];
+                        pI_2 = pts[1];
+                    } else if (i == length - 2) {
+                        pI$1 = pts[i - 1];
+                        pI_1 = pts[i + 1];
+                        pI_2 = pts[0];
+                    } else {
+                        pI$1 = pts[i - 1];
+                        pI_1 = pts[i + 1];
+                        pI_2 = pts[i + 2];
+                    }
                 }
 
-                if (p_1i == null || p_i == null || p_i1 == null || p_i2 == null) {
+                if (pI$1 == null || pI == null || pI_1 == null || pI_2 == null) {
                     continue drawcontour;
                 }
 
-                ai_x = p_i.x + (p_i1.x - p_1i.x) * mSmoothness;
-                ai_y = p_i.y + (p_i1.y - p_1i.y) * mSmoothness;
+                iControl1_X = pI.x + ((pI_1.x - pI$1.x) * mSmoothness);
+                iControl1_Y = pI.y + ((pI_1.y - pI$1.y) * mSmoothness);
 
-                bi_x = p_i1.x - (p_i2.x - p_i.x) * mSmoothness;
-                bi_y = p_i1.y - (p_i2.y - p_i.y) * mSmoothness;
+                iControl2_X = pI_1.x - ((pI_2.x - pI.x) * mSmoothness);
+                iControl2_Y = pI_1.y - ((pI_2.y - pI.y) * mSmoothness);
 
-                path.cubicTo(ai_x, ai_y, bi_x, bi_y, p_i1.x, p_i1.y);
+                path.cubicTo(iControl1_X, iControl1_Y, iControl2_X, iControl2_Y, pI_1.x, pI_1.y);
 
                 if (pts[i].x < x_min) {
                     x_min = pts[i].x;
@@ -248,6 +283,8 @@ public class ContourView extends View {
                                     mShaderStartColor, mShaderEndColor,
                                     Shader.TileMode.REPEAT);
                             mPaint.setShader(linearGradient);
+                            break;
+                        default:
                             break;
                     }
                 }
