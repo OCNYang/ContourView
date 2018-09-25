@@ -27,6 +27,7 @@
 | Beach | ![beach](http://obbu6r1mi.bkt.clouddn.com/github/contourview/beach.png?imageView2/2/w/400) |
 | Ripples | ![ripples](http://obbu6r1mi.bkt.clouddn.com/github/contourview/ripples.png?imageView2/2/w/400) |
 | Shell | ![shell](http://obbu6r1mi.bkt.clouddn.com/github/contourview/shell.png?imageView2/2/w/400) |
+| 自定义（根据自己需要设置轮廓坐标绘制样式） | ![自定义](http://obbu6r1mi.bkt.clouddn.com/github/contourview/custom.jpg?imageView2/2/w/400) |
 
 ### 属性设置
 

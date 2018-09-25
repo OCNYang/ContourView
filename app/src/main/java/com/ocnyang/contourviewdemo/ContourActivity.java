@@ -46,7 +46,7 @@ public class ContourActivity extends AppCompatActivity {
         int width = getWidth();
         int hight = 700;
         int[] ints = {width / 2, 50, ((int) (width * 0.75)), hight / 2, ((int) (width * 0.35)), 350};
-        int[] intArr = new int[]{width / 5, hight / 3, width / 4 * 3, hight / 2, width / 2, ((int) (hight * 0.9)), width / 4, ((int) (hight * 0.75))};
+        int[] intArr = new int[]{width / 5, hight / 3, width / 4 * 3, hight / 2, width / 2, ((int) (hight * 0.9)), width / 5, ((int) (hight * 0.8))};
         contourViewCustom.setPoints(ints, intArr);
         contourViewCustom.setShaderStartColor(getResources().getColor(R.color.startcolor));
         contourViewCustom.setShaderEndColor(getResources().getColor(R.color.endcolor));
