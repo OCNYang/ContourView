@@ -6,7 +6,7 @@
 
 [![GitHub issues](https://img.shields.io/github/issues/OCNYang/ContourView.svg)](https://github.com/OCNYang/ContourView/issues)&ensp;&ensp;[![GitHub forks](https://img.shields.io/github/forks/OCNYang/ContourView.svg)](https://github.com/OCNYang/ContourView/network)&ensp;&ensp;[![GitHub stars](https://img.shields.io/github/stars/OCNYang/ContourView.svg)](https://github.com/OCNYang/ContourView/stargazers)  
 
-![ContourView](http://obbu6r1mi.bkt.clouddn.com/github/contourview/reference.png)
+![ContourView](http://img.shedoor.net/github/contourview/reference.png)
 
 在闲逛一个图片社区时看到这张图片，个人对炫酷的东西比较敏感（视觉肤浅），本来想下载一下这个 App 看一下实际效果，可是没找到。心有不甘，于是分析了一下，感觉实现起来不会太难，自己也花点时间实现了效果，发布了一个库。
 
@@ -22,12 +22,12 @@
 
 | 轮廓样式（contour_style） | 效果（这里只是轮廓的样式，默认效果都是白色，这里显示的颜色是自己设置的） |
 |:----:|:----:|
-| Sand(默认) | ![sand](http://obbu6r1mi.bkt.clouddn.com/github/contourview/sand.png?imageView2/2/w/400) |
-| Clouds | ![clouds](http://obbu6r1mi.bkt.clouddn.com/github/contourview/clouds.png?imageView2/2/w/400) |
-| Beach | ![beach](http://obbu6r1mi.bkt.clouddn.com/github/contourview/beach.png?imageView2/2/w/400) |
-| Ripples | ![ripples](http://obbu6r1mi.bkt.clouddn.com/github/contourview/ripples.png?imageView2/2/w/400) |
-| Shell | ![shell](http://obbu6r1mi.bkt.clouddn.com/github/contourview/shell.png?imageView2/2/w/400) |
-| 自定义（根据自己需要设置轮廓坐标） | ![自定义](http://obbu6r1mi.bkt.clouddn.com/github/contourview/custom.jpg?imageView2/2/w/400) |
+| Sand(默认) | ![sand](http://img.shedoor.net/github/contourview/sand.png?imageView2/2/w/400) |
+| Clouds | ![clouds](http://img.shedoor.net/github/contourview/clouds.png?imageView2/2/w/400) |
+| Beach | ![beach](http://img.shedoor.net/github/contourview/beach.png?imageView2/2/w/400) |
+| Ripples | ![ripples](http://img.shedoor.net/github/contourview/ripples.png?imageView2/2/w/400) |
+| Shell | ![shell](http://img.shedoor.net/github/contourview/shell.png?imageView2/2/w/400) |
+| 自定义（根据自己需要设置轮廓坐标） | ![自定义](http://img.shedoor.net/github/contourview/custom.jpg?imageView2/2/w/400) |
 
 ### 属性设置
 
