@@ -6,7 +6,7 @@
 
 [![GitHub issues](https://img.shields.io/github/issues/OCNYang/ContourView.svg)](https://github.com/OCNYang/ContourView/issues)&ensp;&ensp;[![GitHub forks](https://img.shields.io/github/forks/OCNYang/ContourView.svg)](https://github.com/OCNYang/ContourView/network)&ensp;&ensp;[![GitHub stars](https://img.shields.io/github/stars/OCNYang/ContourView.svg)](https://github.com/OCNYang/ContourView/stargazers)  
 
-![ContourView](http://img.shedoor.net/github/contourview/reference.png)
+![ContourView](https://cdn.jsdelivr.net/gh/ocnyang/gallery@master/github/contourview/reference.png)
 
 在闲逛一个图片社区时看到这张图片，个人对炫酷的东西比较敏感（视觉肤浅），本来想下载一下这个 App 看一下实际效果，可是没找到。心有不甘，于是分析了一下，感觉实现起来不会太难，自己也花点时间实现了效果，发布了一个库。
 
@@ -22,12 +22,12 @@
 
 | 轮廓样式（contour_style） | 效果（这里只是轮廓的样式，默认效果都是白色，这里显示的颜色是自己设置的） |
 |:----:|:----:|
-| Sand(默认) | ![sand](http://img.shedoor.net/github/contourview/sand.png?imageView2/2/w/400) |
-| Clouds | ![clouds](http://img.shedoor.net/github/contourview/clouds.png?imageView2/2/w/400) |
-| Beach | ![beach](http://img.shedoor.net/github/contourview/beach.png?imageView2/2/w/400) |
-| Ripples | ![ripples](http://img.shedoor.net/github/contourview/ripples.png?imageView2/2/w/400) |
-| Shell | ![shell](http://img.shedoor.net/github/contourview/shell.png?imageView2/2/w/400) |
-| 自定义（根据自己需要设置轮廓坐标） | ![自定义](http://img.shedoor.net/github/contourview/custom.jpg?imageView2/2/w/400) |
+| Sand(默认) | <img alt="sand" src="https://cdn.jsdelivr.net/gh/ocnyang/gallery@master/github/contourview/sand.png" width="200px"/> |
+| Clouds | <img alt="clouds" src="https://cdn.jsdelivr.net/gh/ocnyang/gallery@master/github/contourview/clouds.png" width="200px"/> |
+| Beach | <img alt="beach" src="https://cdn.jsdelivr.net/gh/ocnyang/gallery@master/github/contourview/beach.png" width="200px"/> |
+| Ripples | <img alt="ripples" src="https://cdn.jsdelivr.net/gh/ocnyang/gallery@master/github/contourview/ripples.png" width="200px"/> |
+| Shell | <img alt="shell" src="https://cdn.jsdelivr.net/gh/ocnyang/gallery@master/github/contourview/shell.png" width="200px"/> |
+| 自定义（根据自己需要设置轮廓坐标） | <img alt="自定义" src="https://cdn.jsdelivr.net/gh/ocnyang/gallery@master/github/contourview/custom.jpg" width="200px"/> |
 
 ### 属性设置
 
